@@ -4,9 +4,6 @@ import { readItems } from '@directus/sdk';
 export async function load({ fetch }) {
 	const directus = getDirectusInstance(fetch);
 	return {
-		people: await directus.request(readItems('person', {
-			fields: ['id', 'name', 'bio'],
-			sort: ['id'],
-		})),
+		people: await directus.request(readItems('person')),
 	};
 }
