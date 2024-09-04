@@ -7,7 +7,7 @@ export async function load({ fetch, params }) {
 
 	try {
 		return {
-			tribe: await directus.request(readItem('tribe', params.id)),
+			person: await directus.request(readItem('person', params.id)),
 		};
 	} catch (err) {
 		throw error(404, 'Page not found');
