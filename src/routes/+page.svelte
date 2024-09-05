@@ -4,8 +4,11 @@
     
     // Check if the data has been received and is an array
     console.log("Received data in +page.svelte:", data);
+
+    import Logo from '../components/logo.svelte';
 </script>
 
+<Logo/>
 <!-- Only render if we have people in the data -->
 {#if data.people}
     {#each data.people as person}
