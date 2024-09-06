@@ -17,6 +17,7 @@
     {#each data.people as person}
         <h1>{person.name}</h1>
         <p>{person.bio}</p>
+        <a href="/person/{person.id}">Ga naar de pagina van {person.name}</a>
     {/each}
 {:else}
     <!-- This will show if no people are available -->
