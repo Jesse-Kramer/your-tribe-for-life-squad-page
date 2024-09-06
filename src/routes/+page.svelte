@@ -19,7 +19,7 @@
 
 <a href="/person/8">Ga naar een persoon (id:8)</a><br>
 
-<a href="/squad/1">Ga naar tribe 1</a><br>
+<a href="/squad/1">Ga naar squad 1</a><br>
 
 <hr>
 
