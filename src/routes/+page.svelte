@@ -12,14 +12,30 @@
 
 <Logo/> // Voorbeeld logo import
 
-<hr>
-
-<a href="/1">Ga naar tribe 1</a><br>
-<a href="/2">Ga naar tribe 2</a><br>
-
 <a href="/person/8">Ga naar een persoon (id:8)</a><br>
 
-<a href="/squad/1">Ga naar squad 1</a><br>
+<hr>
+<!-- Only render if we have tribes in the data -->
+{#if data.tribes}
+    {#each data.tribes as tribe}
+        <a href="/{tribe.id}">Ga naar {tribe.name}</a><br>
+    {/each}
+{:else}
+    <!-- This will show if no tribes are available -->
+    <p>No data available</p>
+{/if}
+
+<hr>
+
+<!-- Only render if we have tribes in the data -->
+{#if data.squads}
+    {#each data.squads as squad}
+        <a href="/squad/{squad.id}">Ga naar {squad.name}</a><br>
+    {/each}
+{:else}
+    <!-- This will show if no tribes are available -->
+    <p>No data available</p>
+{/if}
 
 <hr>
 
