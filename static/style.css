@@ -72,5 +72,5 @@ img {
  main,
  section,
  article {
-     container-type: inline-size;
+     container-type: initial;
  }
