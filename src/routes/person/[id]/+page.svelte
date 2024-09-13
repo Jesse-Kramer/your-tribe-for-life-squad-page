@@ -8,13 +8,13 @@
         <h1>{data.person.name}</h1>
         <p>{data.person.bio}</p>
         {#if data.person.name && data.person.surname}
-            {#if data.person.prefix}
+                {#if data.person.prefix}
                 <img alt="Foto van {data.person.name}" 
-                    src="/mugshots/{data.person.name}_{data.person.prefix}_{data.person.surname}.png"
+                    src={`/mugshots/${data.person.name.replace(/\s+/g, '-')}_${data.person.prefix.replace(/\s+/g, '-')}_${data.person.surname.replace(/\s+/g, '-')}.png`}
                     on:error={(event) => event.target.src = data.person.avatar && data.person.avatar.includes("https://") ? data.person.avatar : '/placeholder.png'}>
             {:else}
                 <img alt="Foto van {data.person.name}" 
-                    src="/mugshots/{data.person.name}_{data.person.surname}.png"
+                    src={`/mugshots/${data.person.name.replace(/\s+/g, '-')}_${data.person.surname.replace(/\s+/g, '-')}.png`}
                     on:error={(event) => event.target.src = data.person.avatar && data.person.avatar.includes("https://") ? data.person.avatar : '/placeholder.png'}>
             {/if}
         {:else if data.person.avatar && data.person.avatar.includes("https://")}
