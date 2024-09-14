@@ -1,7 +1,8 @@
 <script>
     import { Hamburger } from 'svelte-hamburgers';
-    import { fly, scale } from 'svelte/transition';
-    import { quadOut } from 'svelte/easing';
+    import { fly } from 'svelte/transition';
+    import { slide } from 'svelte/transition';
+	import { quintOut } from 'svelte/easing';
     import { onMount } from 'svelte';
 
     let open = false;
@@ -29,7 +30,7 @@
 
     <nav>
         {#if open || windowWidth >= 768}
-        <ul>
+        <ul transition:fly={{ y: 200, duration: 1000 }}>
             {#each ['Class 2C', 'Class 2D', 'Contact Us'] as link, i}
             <li transition:fly={{ y: -15, delay: 50 * i }}>
                 <a href="#">{link}</a>
