@@ -1,0 +1,1 @@
+<h2>Logo component</h2>
