@@ -2,12 +2,11 @@
     /** @type {import('./$types').PageData} */
     export let data;
 
-    import Logo from '../components/logo.svelte'; // Voorbeeld logo import
+    
     import Header from '../components/header.svelte'; // Voorbeeld header import
+    import Footer from '../components/footer.svelte'; // Voorbeeld footer import
 </script>
 <Header/> // Voorbeeld header import
-
-<Logo/> // Voorbeeld logo import
 
 <a href="/person/8">Ga naar een persoon (id:8)</a><br>
 
@@ -57,6 +56,8 @@
         <p>No data available</p>
     {/if}
 </section>
+
+<Footer/> 
 
 <style>
     section.list {
