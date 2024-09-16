@@ -1,6 +1,8 @@
 <script>
     /** @type {import('./$types').PageData} */
     export let data;
+
+    import Card from '$lib/card.svelte'; // Voorbeeld footer import
 </script>
 
 <!-- Only render if we have people in the data -->
@@ -13,13 +15,14 @@
 {/if}
 
 <!-- Only render if we have people in the data -->
+<section class="list">
 {#if data.people}
     {#each data.people as person}
-        <h1>{person.name}</h1>
-        <p>{person.bio}</p>
-        <a href="/person/{person.id}">Ga naar de pagina van {person.name}</a>
+    <Card {person}/>
     {/each}
 {:else}
     <!-- This will show if no people are available -->
     <p>No data available</p>
 {/if}
+</section>
+
