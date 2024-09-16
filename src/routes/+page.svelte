@@ -3,8 +3,8 @@
     /** @type {import('./$types').PageData} */
     export let data;
 
-    import Logo from '../components/logo.svelte';
-    import Header from '../components/header.svelte';
+    import Header from '../components/header.svelte'; // Voorbeeld header import
+    import Footer from '../components/footer.svelte'; // Voorbeeld footer import
 
     let squadsWithPersons = [];
 
@@ -72,6 +72,8 @@
         <p>No data available</p>
     {/if}
 </section>
+
+<Footer/> 
 
 <style>
     section.list {
