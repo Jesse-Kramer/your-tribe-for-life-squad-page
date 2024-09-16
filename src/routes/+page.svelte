@@ -4,7 +4,7 @@
     export let data;
 
     import Header from '../components/header.svelte'; // Voorbeeld header import
-    import Footer from '../components/footer.svelte'; // Voorbeeld footer import
+    import Footer from '$lib/footer.svelte';
     import Card from '$lib/card.svelte'; // Voorbeeld footer import
 
     let squadsWithPersons = [];
@@ -65,4 +65,4 @@
     {/if}
 </section>
 
-<Footer/> 
+<Footer/>

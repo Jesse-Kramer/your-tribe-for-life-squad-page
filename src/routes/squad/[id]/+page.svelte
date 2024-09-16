@@ -3,6 +3,7 @@
     export let data;
 
     import Card from '$lib/card.svelte'; // Voorbeeld footer import
+    import Footer from '$lib/footer.svelte';
 </script>
 
 <!-- Only render if we have people in the data -->
@@ -26,3 +27,4 @@
 {/if}
 </section>
 
+<Footer/>

@@ -17,8 +17,8 @@
           <li><a href="https://github.com/yassirog">Yassir Bghiel</a></li>
         </ul>
       </div>
-  
-      
+
+
       <div class="footer-right">
         <img src="{fdnd}" alt="Logo" class="footer-logo">
         <p onclick="window.open('https://media.tenor.com/5qFC_6TdrKsAAAAM/quincy-bloons-td-6.gif', '_blank')">© Copyright 2024</p>
@@ -29,8 +29,8 @@
 
   <style>
 footer {
-  background-color: #232323; 
-  color: #fff; 
+  background-color: #232323;
+  color: #fff;
   padding: 20px;
 }
 
@@ -55,20 +55,20 @@ footer {
 
 .footer-left li a {
   text-decoration: none;
-  color: #fff; 
-  transition: text-decoration 1s ease; 
+  color: #fff;
+  transition: text-decoration 1s ease;
 }
 
 .footer-left li a:hover {
-  text-decoration: underline; 
-  text-decoration-color: #8f8f8f67; 
+  text-decoration: underline;
+  text-decoration-color: #8f8f8f67;
 }
 
 .footer-right {
   display: flex;
-  flex-direction: column; 
-  justify-content: flex-end; 
-  align-items: center; 
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
   text-align: right;
 }
 
@@ -77,7 +77,7 @@ footer {
 }
 
 .footer-logo {
-  max-width: 100px; 
+  max-width: 100px;
   margin-bottom: 10px;
 }
 
@@ -86,4 +86,3 @@ footer {
 }
 
   </style>
-  
