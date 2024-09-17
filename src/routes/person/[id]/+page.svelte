@@ -1,7 +1,11 @@
 <script>
     /** @type {import('./$types').PageData} */
     export let data;
+
+    import Header from '../../../components/header.svelte';
 </script>
+
+<Header {data}/>
 
 <!-- Only render if we have people in the data -->
 {#if data.person.name}
