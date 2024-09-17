@@ -210,8 +210,8 @@
             height: calc(100% - 50%);
         }
         picture img {
-        height: auto;
-        object-fit: none;
+        height: 140%;
+        object-fit: contain;
         }
     }
     @media (min-width: 1024px) {
