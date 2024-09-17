@@ -24,17 +24,23 @@
 <section class="list">
     {#if data.person.name}
     <article class="container">
-        <div class="Name">
+        <article class="Name">
             <h3>{data.person.name || "Naam?"}</h3>
-        </div>
-        <div class="description">
+        </article>
+        <article class="description">
             <h4>Front-end Developer</h4>
-        </div>
-        <div class="bio">
+        </article>
+        <article class="bio">
             <h5>Over {data.person.name},</h5>
             <p>{data.person.bio || "Ik heb geen bio!"}</p>
-            <button>test</button>
-        </div>
+            {#if data.person.github_handle}
+                {#if data.person.github_handle.startsWith('https://')}
+                    <a href="{data.person.github_handle}" target="_blank" rel="noopener noreferrer"><img src=/github_logo.png alt="github logo">Github</a>
+                {:else}
+                    <a href="https://github.com/{data.person.github_handle}" target="_blank" rel="noopener noreferrer"><img src=/github_logo.png alt="github logo">Github</a>
+                {/if}
+            {/if}
+        </article>
         <div class="image">
             <picture>
                 <img alt="" src={`/mugshots/${data.person.id}.png`} onerror="this.src= '/placeholder-error-white.png'">
@@ -71,6 +77,7 @@
     }
     .navigation a {
         text-decoration: underline;
+        font-weight: bold;
     }
     .container {
         display: grid;
@@ -82,7 +89,7 @@
     .description {grid-area: 3 / 1 / 4 / 5;}
     .bio {
         grid-area: 5 / 1 / 6 / 5;
-         margin-top: 1em;
+        margin-top: 1em;
     }
     .image {grid-area: 4 / 1 / 5 / 5;}
     section.list {
@@ -90,6 +97,10 @@
         padding: .5rem;
         row-gap: .4rem;
         margin-bottom: 3em;
+    }
+    .list .image:hover img {
+        filter: grayscale(0);
+        transition: 1 ease-in-out;
     }
     h2 {
         color: #8C8C8C;
@@ -150,6 +161,28 @@
         position: relative;
         width: 100%;
         z-index: 1;
+    }
+    .container .bio a {
+        border: 2px solid black;
+        border-radius: 4px;
+        font-size: 20px;
+        padding: 0.3em 0.5em;
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+    .container .bio a:hover {
+        transform: translate(10px, -10px);
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.6);
+    }
+    .container .bio a img {
+        width: 20px;
+        height: 20px;
+        vertical-align: middle;
+        margin-right: 5px;
+        margin-bottom: 3px;
     }
     @media (min-width: 800px) {
         .navigation {
