@@ -7,11 +7,13 @@
     let filteredSquads = [];
     let isYearPage = false;
     let year = '';
+    let activePath = '';
 
     // Update squadsWithPersons en filteredSquads op basis van de URL
     $: {
         // Verkrijg de huidige path van de URL
         const path = $page.url.pathname;
+        activePath = path;
 
         // Controleer of de path eindigt met /1 of /2
         if (path.endsWith("/1") || path.endsWith("/2")) {
@@ -39,17 +41,30 @@
 <header class="navigation">
     <h1><a href="/">FDND</a></h1>
     <ul class="classes-list">
-        {#each squadsWithPersons as squad}
-        <li><a href="/squad/{squad.id}">{squad.name}</a></li>
-        {/each}
+        {#if filteredSquads.length > 0}
+            {#each filteredSquads as squad}
+                <li>
+                    <a href="/squad/{squad.id}" class:{active}={activePath === `/squad/${squad.id}`}>{squad.name}</a>
+                </li>
+            {/each}
+        {:else}
+            <!-- Als hij leeg is -->
+            <li>??</li>
+        {/if}
     </ul>
     <ul class="year-list">
-        {#each data.tribes as tribe}
-        <li><a href="/{tribe.id}">{tribe.name}</a></li>
-        {/each}
+        {#if data.tribes}
+            {#each data.tribes as tribe}
+                <li>
+                    <a href="/{tribe.id}" class:{active}={activePath === `/${tribe.id}`}>{tribe.name}</a>
+                </li>
+            {/each}
+        {:else}
+            <!-- Als hij leeg is -->
+            <li>??</li>
+        {/if}
     </ul>
 </header>
-
 
 <style>
     .navigation {
@@ -72,6 +87,12 @@
 
     .navigation a:hover {
         text-decoration: underline;
+    }
+
+    .active {
+        font-weight: bold;
+        text-decoration: underline;
+        color: var(--active-color);
     }
 
     @media (max-width: 800px) {
