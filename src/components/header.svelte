@@ -39,13 +39,14 @@
 <header class="navigation">
     <h1><a href="/">FDND</a></h1>
     <ul class="classes-list">
-        <li><a href="/squad/5">1F</a></li>
-        <li><a href="/squad/3">2C</a></li>
-        <li><a href="/squad/4">2D</a></li>
+        {#each squadsWithPersons as squad}
+        <li><a href="/squad/{squad.id}">{squad.name}</a></li>
+        {/each}
     </ul>
     <ul class="year-list">
-        <li><a href="/1">Jaar 1</a></li>
-        <li><a href="/2">Jaar 2</a></li>
+        {#each data.tribes as tribe}
+        <li><a href="/{tribe.id}">{tribe.name}</a></li>
+        {/each}
     </ul>
 </header>
 
@@ -64,12 +65,12 @@
         list-style-type: none;
     }
 
-    .navigation ul a {
+    .navigation a {
         color: var(--text-color);
         text-decoration: none;
     }
 
-    .navigation ul a:hover {
+    .navigation a:hover {
         text-decoration: underline;
     }
 
