@@ -58,15 +58,15 @@ Ontwerp en maak met een team een overzicht van alle squads, jouw squad en alle p
 ## Bronnen
 
 ### Squad page
-[Prototype design squad home page](https://www.figma.com/design/RzXYFnNmDgT5D6LNmNcXP0/Figma-design-squad-page?node-id=4-40&node-type=frame&t=IjRBpzQ1tNmVDcF6-0)  
-[Prototype person page design](https://www.figma.com/design/SJV9r8qi2rzOIvGarrYZAv/profile-page-design?node-id=0-1&node-type=canvas&t=DCDugDzvgfJxzMvH-0)  
+[Prototype squad page](https://www.figma.com/design/RzXYFnNmDgT5D6LNmNcXP0/Figma-design-squad-page?node-id=4-40&node-type=frame&t=IjRBpzQ1tNmVDcF6-0)  
+[Prototype person page](https://www.figma.com/design/SJV9r8qi2rzOIvGarrYZAv/profile-page-design?node-id=0-1&node-type=canvas&t=DCDugDzvgfJxzMvH-0)  
 
 
 
 ### Info technieken
-[SvelteKit docs]([https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON](https://kit.svelte.dev/docs/introduction))  
-[Directus Introductie](https://docs.directus.io/reference/introduction.html)    
-[Directus and SvelteKit docs]([https://ejs.co](https://docs.directus.io/blog/getting-started-directus-sveltekit.html))  
+[SvelteKit docs](https://kit.svelte.dev/docs/introduction)     
+[Directus Introductie](https://docs.directus.io/reference/introduction.html)        
+[Directus and SvelteKit docs](https://docs.directus.io/blog/getting-started-directus-sveltekit.html)
 
 ## Licentie
 
