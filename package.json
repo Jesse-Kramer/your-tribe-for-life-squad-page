@@ -16,6 +16,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@directus/sdk": "^17.0.0"
+		"@directus/sdk": "^17.0.0",
+		"sharp": "^0.33.5"
 	}
 }
