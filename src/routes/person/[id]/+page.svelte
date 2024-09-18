@@ -8,9 +8,9 @@
 <Header {data}/>
 
 <!-- Only render if we have people in the data -->
-<section class="list">
+<section class="person-block">
     {#if data.person.name}
-    <article class="container">
+    <article class="person-container">
         <article class="Name">
             <h3>{data.person.name || "Naam?"}</h3>
         </article>
@@ -42,31 +42,7 @@
 </section>
 
 <style>
-    ul {
-            list-style-type: none;
-            padding: 0;
-        }
-    .navigation {
-        align-items: center;
-        display: flex;
-        justify-content: space-between;
-        padding: 1rem .5rem;
-    }
-
-    .navigation ul {
-        display: flex;
-        gap: 1rem;
-    }
-    .navigation a {
-        color: black;
-        text-decoration: none;
-        font-size: 16px;
-    }
-    .navigation a {
-        text-decoration: underline;
-        font-weight: bold;
-    }
-    .container {
+    .person-container {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         grid-template-rows: repeat(6, auto);
@@ -79,22 +55,15 @@
         margin-top: 1em;
     }
     .image {grid-area: 4 / 1 / 5 / 5;}
-    section.list {
+    section.person-block {
         column-gap: 1rem;
         padding: .5rem;
         row-gap: .4rem;
         margin-bottom: 3em;
     }
-    .list .image:hover img {
+    .person-block .image:hover img {
         filter: grayscale(0);
         transition: 1 ease-in-out;
-    }
-    h2 {
-        color: #8C8C8C;
-        margin: 0;
-        padding: 1rem .5rem;
-        font-size: 0.8rem;
-        text-transform: uppercase;
     }
     h3 {
         font-size: 52px;
@@ -149,7 +118,7 @@
         width: 100%;
         z-index: 1;
     }
-    .container .bio a {
+    .person-container .bio a {
         border: 2px solid black;
         border-radius: 4px;
         font-size: 20px;
@@ -160,29 +129,23 @@
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     }
-    .container .bio a:hover {
+    .person-container .bio a:hover {
         transform: translate(10px, -10px);
         box-shadow: 0 8px 12px rgba(0, 0, 0, 0.6);
     }
-    .container .bio a img {
+    .person-container .bio a img {
         width: 20px;
         height: 20px;
         vertical-align: middle;
         margin-right: 5px;
         margin-bottom: 3px;
     }
+    article {
+        display: block;
+    }
     @media (min-width: 800px) {
-        .navigation {
-            padding: 1rem 3.5rem;
-        }
-        .navigation a {
-            font-size: 24px;
-        }
-        section.list {
+        section.person-block {
             padding: 0 3.5rem;
-        }
-        h2 {
-            padding: 1rem 3.5rem;
         }
         h3 {
         font-size: 72px;
@@ -202,7 +165,7 @@
         }
     }
     @media (min-width: 1024px) {
-        .container {
+        .person-container {
             grid-template-columns: repeat(12, 1fr); 
             grid-template-rows: repeat(8, minmax(0px, 100px)); 
             gap: 0px 16px;                          
