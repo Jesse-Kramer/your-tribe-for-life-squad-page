@@ -1,24 +1,11 @@
 <script>
     /** @type {import('./$types').PageData} */
     export let data;
+
+    import Header from '../../../components/header.svelte';
 </script>
 
-<section class="navigation">
-    <a href="/">&lt; Terug</a>
-    <ul class="classes-list">
-        <li>1F</li>
-        <li>2C</li>
-        <li>2D</li>
-    </ul>
-    <ul class="year-list">
-        <li>Jaar 1</li>
-        <li>Jaar 2</li>
-    </ul>
-</section>
-
-<section class="hero">
-    <h2>Persoons pagina</h2>
-</section>
+<Header {data}/>
 
 <!-- Only render if we have people in the data -->
 <section class="list">
