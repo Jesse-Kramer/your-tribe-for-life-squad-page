@@ -4,7 +4,10 @@
 
     import Card from '$lib/card.svelte'; // Voorbeeld footer import
     import Footer from '$lib/footer.svelte';
+    import Header from '../../../components/header.svelte';
 </script>
+
+<Header {data}/>
 
 <!-- Only render if we have people in the data -->
 {#if data.squad.id}

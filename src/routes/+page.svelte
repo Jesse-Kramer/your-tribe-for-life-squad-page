@@ -1,12 +1,11 @@
 <script>
-    import { onMount } from 'svelte';
     /** @type {import('./$types').PageData} */
     export let data;
 
     import Header from '../components/header.svelte'; // Voorbeeld header import
     import Footer from '$lib/footer.svelte';
     import Card from '$lib/card.svelte'; // Voorbeeld footer import
-
+  
     let squadsWithPersons = [];
 
     onMount(() => {
@@ -18,36 +17,10 @@
             squadsWithPersons = data.squads.filter(squad => squadIdsWithPersons.has(squad.id));
         }
     });
+    
   </script>
 
-<section class="navigation">
-    <h1>FDND</h1>
-    <ul class="classes-list">
-        {#if squadsWithPersons.length > 0}
-            {#each squadsWithPersons as squad}
-                <li>
-                    <a href="/squad/{squad.id}">{squad.name}</a>
-                </li>
-            {/each}
-        {:else}
-            <!-- Als hij leeg is -->
-            <p>??</p>
-        {/if}
-    </ul>
-    <ul class="year-list">
-        {#if data.tribes}
-            {#each data.tribes as tribe}
-                <li>
-                    <a href="/{tribe.id}">{tribe.name}</a>
-                </li>
-            {/each}
-        {:else}
-            <!-- Als hij leeg is -->
-            <p>??</p>
-        {/if}
-
-    </ul>
-</section>
+<Header {data}/>
 
 <section class="hero">
     <h2>Alle Studenten</h2>
