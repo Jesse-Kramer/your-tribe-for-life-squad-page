@@ -5,7 +5,7 @@
 <section class="list">
     {#if data.people}
         {#each data.people as person}
-        <a href="/person/{person.id}">
+        <a class="person" href="/person/{person.id}">
             <picture>
                 <img alt="" src={`/mugshots/${person.id}.png`} onerror="this.src= '/placeholder-error-white.png'">
             </picture>

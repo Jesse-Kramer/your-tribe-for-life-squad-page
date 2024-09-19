@@ -214,6 +214,14 @@ ul {
     text-decoration: underline;
 }
 
+.person {
+    transition: 0.3s;
+}
+
+   .person:hover{
+    transform: scale(1.1);
+   } 
+
 @media (max-width: 800px) {
     section.list {
         padding: .5rem;
