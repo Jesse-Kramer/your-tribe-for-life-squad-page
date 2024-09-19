@@ -2,6 +2,7 @@
 import { error } from '@sveltejs/kit';
 import getDirectusInstance from '$lib/directus';
 import { readItem, readItems } from '@directus/sdk';
+export let csr = true;
 
 export async function load({ fetch, params }) {
 	const directus = getDirectusInstance(fetch);

@@ -1,27 +1,25 @@
 <script>
-    /** @type {import('./$types').PageData} */
-    export let data;
+  /** @type {import('./$types').PageData} */
+  export let data;
 
-    import Header from '../../../components/header.svelte';
-    import Footer from '../../../components/footer.svelte';
-    import Card from '../../../components/card.svelte';
+  import Header from "../../../components/header.svelte";
+  import Footer from "../../../components/footer.svelte";
+  import Card from "../../../components/card.svelte";
+  import { fly } from "svelte/transition";
 </script>
 
-<Header {data}/>
-
-<!-- Only render if we have people in the data -->
-
+<Header {data} />
 
 <section class="hero">
-{#if data.squad.id}
-        <h2>Squad {data.squad.name}</h2>
-{:else}
-    <!-- This will show if no people are available -->
+  {#if data.squad.id}
+    <h2>Squad {data.squad.name}</h2>
+  {:else}
     <p>No data available</p>
-{/if}
+  {/if}
 </section>
 
-<!-- Only render if we have people in the data -->
-<Card {data}/>
+<div in:fly={{ y: 200, duration: 1500 }}>
+  <Card {data} />
+</div>
 
-<Footer/>
+<Footer />

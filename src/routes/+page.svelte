@@ -1,19 +1,21 @@
 <script>
-    /** @type {import('./$types').PageData} */
-    export let data;
+  /** @type {import('./$types').PageData} */
+  export let data;
 
-    import Header from '../components/header.svelte'; // Voorbeeld header import
-    import Footer from '../components/footer.svelte'; // Voorbeeld footer import
-    import Card from '../components/card.svelte';
-  </script>
+  import Header from "../components/header.svelte";
+  import Footer from "../components/footer.svelte";
+  import Card from "../components/card.svelte";
+  import { fly } from "svelte/transition";
+</script>
 
-<Header {data}/>
+<Header {data} />
 
 <section class="hero">
-    <h2>Alle Studenten</h2>
+  <h2>Alle Studenten</h2>
 </section>
 
-<!-- Only render if we have people in the data -->
-<Card {data}/>
+<div in:fly={{ y: 200, duration: 1500 }}>
+  <Card {data} />
+</div>
 
-<Footer/>
+<Footer />
