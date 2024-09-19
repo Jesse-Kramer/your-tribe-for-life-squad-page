@@ -33,5 +33,6 @@
 		display: flex;
 		gap: 0.5rem;
 		color: var(--text);
+		align-items: center;
 	}
 </style>
