@@ -3,6 +3,7 @@
     export let data;
 
     import Header from '../../../components/header.svelte';
+    import Footer from '../../../components/footer.svelte';
 </script>
 
 <Header {data}/>
@@ -40,6 +41,8 @@
         <p>No data available</p>
     {/if}
 </section>
+
+<Footer/>
 
 <style>
     .person-container {

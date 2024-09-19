@@ -8,6 +8,7 @@ export async function load({ fetch, params }) {
 	try {
 		// Fetch the squad details by params.id
 		const tribe = await directus.request(readItem('tribe', params.id));
+		const tribes = await directus.request(readItems('tribe'));
 
 		// Fetch people from the same squad using squad_id filter
 		const squads = await directus.request(readItems('squad', {
@@ -21,6 +22,7 @@ export async function load({ fetch, params }) {
 		return {
 			tribe,
 			squads,
+			tribes
 		};
 	} catch (err) {
 		throw error(404, 'Page not found');

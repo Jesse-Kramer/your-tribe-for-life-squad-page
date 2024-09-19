@@ -29,8 +29,8 @@
 
   <style>
 footer {
-  background-color: #232323; 
-  color: #fff; 
+  background-color: var(--background-2); 
+  color: var(--text);
   padding: 20px;
 }
 
@@ -55,13 +55,13 @@ footer {
 
 .footer-left li a {
   text-decoration: none;
-  color: #fff; 
+  color: var(--text); 
   transition: text-decoration 1s ease; 
 }
 
 .footer-left li a:hover {
   text-decoration: underline; 
-  text-decoration-color: #8f8f8f67; 
+  text-decoration-color: var(--text); 
 }
 
 .footer-right {
@@ -73,7 +73,7 @@ footer {
 }
 
 .footer-right p{
-    color: #8f8f8f67;
+    color: var(--text-2);
 }
 
 .footer-logo {

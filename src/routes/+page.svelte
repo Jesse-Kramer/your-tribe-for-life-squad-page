@@ -4,6 +4,7 @@
 
     import Header from '../components/header.svelte'; // Voorbeeld header import
     import Footer from '../components/footer.svelte'; // Voorbeeld footer import
+    import Card from '../components/card.svelte';
   </script>
 
 <Header {data}/>
@@ -13,24 +14,6 @@
 </section>
 
 <!-- Only render if we have people in the data -->
-<section class="list">
-    {#if data.people}
-        {#each data.people as person}
-        <a href="/person/{person.id}">
-            <picture>
-                <img alt="" src={`/mugshots/${person.id}.png`} onerror="this.src= '/placeholder-error-white.png'">
-            </picture>
-
-            <article>
-                <h3>{person.name || "Naam?"}</h3>
-                <p>{person.bio || "Ik heb geen bio!"}</p>
-            </article>
-        </a>
-        {/each}
-    {:else}
-        <!-- This will show if no people are available -->
-        <p>No data available</p>
-    {/if}
-</section>
+<Card {data}/>
 
 <Footer/>

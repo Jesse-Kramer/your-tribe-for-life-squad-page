@@ -1,15 +1,56 @@
 
 :root {
-    --bg-color: #EBE6E6;
-    --text-color: #080808;
+    --bg-color-light: #EBE6E6;
+    --bg-color-picture-light: #8C8C8C80;
+    --text-color-light: #212121;
+    --text-2-color-light: #8C8C8C;
+    --bg-color-dark: #3f3c3c;
+    --bg-color-picture-dark: #292727;
+    --text-color-dark: #e8e6e0;
+    --text-2-color-dark: #adaca7;
+
+    color-scheme: dark;
+
+	--background: var(--bg-color-light);
+    --background-2: var(--bg-color-picture-light);
+	--text: var(--text-color-light);
+	--text-2: var(--text-2-color-light);
 
     font-family: 'AeonikTrial', sans-serif;
 }
 
+@media (prefers-color-scheme: light) {
+	:root {
+		color-scheme: light;
+
+		--background: var(--bg-color-dark);
+        --background-2: var(--bg-color-picture-dark);
+	    --text: var(--text-color-dark);
+	    --text-2: var(--text-2-color-dark);
+	}
+}
+
+[color-scheme='dark'] {
+	color-scheme: dark;
+
+	--background: var(--bg-color-light);
+    --background-2: var(--bg-color-picture-light);
+	--text: var(--text-color-light);
+	--text-2: var(--text-2-color-light);
+}
+
+[color-scheme='light'] {
+	color-scheme: light;
+
+	--background: var(--bg-color-dark);
+    --background-2: var(--bg-color-picture-dark);
+	--text: var(--text-color-dark);
+	--text-2: var(--text-2-color-dark);
+}
 
 body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
+    background-color: var(--background);
+    color: var(--text);
     margin: 0;
     padding: 0;
     font-size: 1rem;
@@ -85,7 +126,7 @@ img {
 }
 
 h2 {
-    color: #8C8C8C;
+    color: var(--text-2);
     margin: 0;
     padding: 1rem 3.5rem;
     font-size: 0.8rem;
@@ -113,7 +154,7 @@ picture {
 }
 
 picture::after {
-    background: #8C8C8C80;
+    background: var(--background-2);
     border-radius: 8px;
     bottom: 0;
     content: '';
@@ -139,7 +180,7 @@ picture img {
     border-radius: 8px;
     padding: .6em;
     text-decoration: none;
-    color: black;
+    color: var(--text);
 }
 
 .list a:hover img {
@@ -165,7 +206,7 @@ ul {
 }
 
 .navigation ul a {
-    color: black;
+    color: var(--text);
     text-decoration: none;
 }
 

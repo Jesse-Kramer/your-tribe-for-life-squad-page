@@ -1,19 +1,18 @@
 <script>
     import { onMount } from 'svelte';
     import { page } from '$app/stores';
+    import Toggle from '../routes/toggle.svelte'
 
     export let data;
     let squadsWithPersons = [];
     let filteredSquads = [];
     let isYearPage = false;
     let year = '';
-    let activePath = '';
 
     // Update squadsWithPersons en filteredSquads op basis van de URL
     $: {
         // Verkrijg de huidige path van de URL
         const path = $page.url.pathname;
-        activePath = path;
 
         // Controleer of de path eindigt met /1 of /2
         if (path.endsWith("/1") || path.endsWith("/2")) {
@@ -44,7 +43,7 @@
         {#if filteredSquads.length > 0}
             {#each filteredSquads as squad}
                 <li>
-                    <a href="/squad/{squad.id}" class:{active}={activePath === `/squad/${squad.id}`}>{squad.name}</a>
+                    <a href="/squad/{squad.id}">{squad.name}</a>
                 </li>
             {/each}
         {:else}
@@ -56,13 +55,14 @@
         {#if data.tribes}
             {#each data.tribes as tribe}
                 <li>
-                    <a href="/{tribe.id}" class:{active}={activePath === `/${tribe.id}`}>{tribe.name}</a>
+                    <a href="/{tribe.id}">{tribe.name}</a>
                 </li>
             {/each}
         {:else}
             <!-- Als hij leeg is -->
             <li>??</li>
         {/if}
+        <li><Toggle /></li>
     </ul>
 </header>
 
@@ -81,18 +81,12 @@
     }
 
     .navigation a {
-        color: var(--text-color);
+        color: var(--text);
         text-decoration: none;
     }
 
     .navigation a:hover {
         text-decoration: underline;
-    }
-
-    .active {
-        font-weight: bold;
-        text-decoration: underline;
-        color: var(--active-color);
     }
 
     @media (max-width: 800px) {
