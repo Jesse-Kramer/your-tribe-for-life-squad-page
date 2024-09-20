@@ -3,7 +3,7 @@
 </script>
 
 <section class="list">
-    {#if data.people}
+    {#if data.people && data.people.length > 0}
         {#each data.people as person}
         <a class="person" href="/person/{person.id}">
             <picture>
@@ -18,6 +18,6 @@
         {/each}
     {:else}
         <!-- This will show if no people are available -->
-        <p>No data available</p>
+        <p>Er zitten geen studenten in deze squad</p>
     {/if}
 </section>

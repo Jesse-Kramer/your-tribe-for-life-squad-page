@@ -9,21 +9,21 @@
     let isYearPage = false;
     let year = '';
 
-    // Update squadsWithPersons en filteredSquads op basis van de URL
+    // Update squadsWithPersons and filteredSquads based on the URL
     $: {
-        // Verkrijg de huidige path van de URL
+        // Get the current path from the URL
         const path = $page.url.pathname;
 
-        // Controleer of de path eindigt met /1 of /2
+        // Check if the path ends with /1 or /2
         if (path.endsWith("/1") || path.endsWith("/2")) {
-            year = path.slice(-1); // Verkrijg het laatste karakter als jaar
+            year = path.slice(-1); // Get the last character as the year
             isYearPage = true;
         } else {
             isYearPage = false;
             year = '';
         }
 
-        // Filter squads op basis van het geselecteerde jaar
+        // Filter squads based on the selected year
         if (data.squads && data.people) {
             const squadIdsWithPersons = new Set(data.people.map(person => person.squad_id));
             squadsWithPersons = data.squads.filter(squad => squadIdsWithPersons.has(squad.id));
@@ -31,7 +31,7 @@
             if (isYearPage && year) {
                 filteredSquads = squadsWithPersons.filter(squad => squad.name.startsWith(year));
             } else {
-                filteredSquads = squadsWithPersons; // Geen filtering als niet op jaar pagina
+                filteredSquads = squadsWithPersons; // No filtering if not on year page
             }
         }
     }
@@ -40,31 +40,36 @@
 <header class="navigation">
     <h1><a href="/">FDND</a></h1>
     <ul class="classes-list">
-        {#if filteredSquads.length > 0}
-            {#each filteredSquads as squad}
+        <!-- Always show all squads -->
+        {#if data.squads.length > 0}
+            {#each data.squads as squad}
                 <li>
                     <a href="/squad/{squad.id}">{squad.name}</a>
                 </li>
             {/each}
         {:else}
-            <!-- Als hij leeg is -->
             <li>??</li>
         {/if}
     </ul>
+
     <ul class="year-list">
-        {#if data.tribes}
-            {#each data.tribes as tribe}
-                <li>
-                    <a href="/{tribe.id}">{tribe.name}</a>
-                </li>
-            {/each}
-        {:else}
-            <!-- Als hij leeg is -->
-            <li>??</li>
-        {/if}
         <li><Toggle /></li>
     </ul>
 </header>
+
+<!-- Filtered content goes here, if needed -->
+{#if isYearPage && filteredSquads.length > 0}
+    <!-- Show filtered squads based on the year -->
+    <section>
+        <h2>Squads for year {year}</h2>
+        <ul>
+            {#each filteredSquads as squad}
+                <li>{squad.name}</li>
+            {/each}
+        </ul>
+    </section>
+{/if}
+
 
 <style>
     .navigation {

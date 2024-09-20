@@ -35,7 +35,7 @@
             </picture>
         </div>
     </article>
-    
+
     {:else}
         <!-- This will show if no people are available -->
         <p>No data available</p>
@@ -80,12 +80,12 @@
         margin: 0;
         float: inline-end;
     }
-    
+
     h5 {
         font-size: 32px;
         margin: 0;
     }
-    
+
     p {
         font-size: 20px;
         font-weight: 100;
@@ -146,6 +146,10 @@
     article {
         display: block;
     }
+
+    .person-block img {
+        filter: grayscale(0);
+    }
     @media (min-width: 800px) {
         section.person-block {
             padding: 0 3.5rem;
@@ -169,9 +173,9 @@
     }
     @media (min-width: 1024px) {
         .person-container {
-            grid-template-columns: repeat(12, 1fr); 
-            grid-template-rows: repeat(8, minmax(0px, 100px)); 
-            gap: 0px 16px;                          
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: repeat(8, minmax(0px, 100px));
+            gap: 0px 16px;
         }
 
         .Name { grid-area: 2 / 6 / 3 / 11; }
